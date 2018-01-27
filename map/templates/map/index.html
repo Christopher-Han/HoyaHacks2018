@@ -4,6 +4,9 @@
 <link rel="stylesheet" href="{% static 'map/index.css' %}">
 <div class="container">
     <h1>#MeToo</h1>
+    <div id="arcs" style="position: relative; width 500px; height: 300px;">
+    </div>
+
     <div class="timeline">
         <ul>
             <li>
@@ -26,4 +29,9 @@
         </ul>
     </div>
 </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="static/map/datamaps.usa.min.js"></script>
+<script src="static/map/datamap.js"></script>
 {% endblock %}
+
