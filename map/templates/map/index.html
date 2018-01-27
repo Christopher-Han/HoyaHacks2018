@@ -29,9 +29,8 @@
         </ul>
     </div>
 </div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="static/map/datamaps.usa.min.js"></script>
-<script src="static/map/datamap.js"></script>
+{% block map %}
+{% include "map/map.html" %}
+{% endblock %}
 {% endblock %}
 

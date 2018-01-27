@@ -1,9 +1,2 @@
-{% extends "index.html" %}
-{% block map %}
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="static/map/datamaps.usa.min.js"></script>
-<script src="static/map/datamap.js"></script>
-{% endblock %}
+{% load staticfiles %}
+<script src="{% static 'map/datamap.js' %}"></script>
