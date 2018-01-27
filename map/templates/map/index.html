@@ -1,19 +1,29 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-path {
-  fill: #ccc;
-  stroke: none;
-}
-
-.cities{
-  fill: blue;
-}
-
-</style>
-<body>
-{% load static %}
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script src="{% static "map/smallMap.js" %}"></script>
+{% extends "map/header.html" %}
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'map/index.css' %}">
+<div class="container">
+    <h1>#MeToo</h1>
+    <div class="timeline">
+        <ul>
+            <li>
+                <div>
+                </div>
+            </li>
+             <li>
+                <div>
+                </div>
+            </li>
+             <li>
+                <div>
+                </div>
+            </li>
+             <li>
+                <div>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+{% endblock %}
