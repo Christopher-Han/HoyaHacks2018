@@ -2,32 +2,16 @@
 {% block content %}
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'map/index.css' %}">
+<link rel="stylesheet" href="{% static 'map/slider.css' %}">
+<link rel="stylesheet" href="{% static 'map/d3.slider.css' %}">
 <div class="container">
-    <h1>#MeToo</h1>
-    <div class="timeline">
-        <ul>
-            <li>
-                <div>
-                </div>
-            </li>
-             <li>
-                <div>
-                </div>
-            </li>
-             <li>
-                <div>
-                </div>
-            </li>
-             <li>
-                <div>
-                </div>
-            </li>
-            
-        </ul>
-    </div>
+    <div class="main">
     <div id="map" style="">
     </div>
-
+    <div id="slider">
+    </div>
+    <script src="{% static 'map/slider.js' %}"></script>
+    </div>
 </div>
 {% block map %}
 {% include "map/map.html" %}
