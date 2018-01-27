@@ -15,7 +15,7 @@ var bombMap = new Datamap({
     return {path: path, projection: projection};
   },
   fills: {
-    defaultFill: "#FFFFFF",
+    defaultFill: "grey",
     win: '#000000',
     'BUB':'000000'
   },

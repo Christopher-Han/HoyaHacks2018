@@ -202,8 +202,11 @@ function Datamap() {
     element: this.$container.get(0),
     projection: 'mercator',
     done: this._handleMapReady.bind(this),
+    geographyConfig: {
+    	borderColor:'white'
+    },
     fills: {
-      defaultFill: "#FFFFFF",
+       defaultFill: "#fafafa",
     }
     });
 }
