@@ -1,18 +1,4 @@
-var bombMap = new Datamap({
-  element: document.getElementById("map"),
-  height: null,
-  width: null, 
-  scope: 'usa',
-  fills: {
-    defaultFill: "#FFFFFF",
-    win: '#000000',
-    'BUB':'000000'
-  },
-  data: {
-    'BUB':{fillKey:'BUB'}
-  } 
-});
-var bubblesJSON = [
+[
   {
     "timestamp": "2016-03-04 12:40:00",
     "total": "1",
@@ -670,46 +656,4 @@ var bubblesJSON = [
     "latitude": "28.014067",
     "longitude": "-81.728676"
   }
-];
-// Arcs coordinates can be specified explicitly with latitude/longtitude,
-// or just the geographic center of the state/country.
-var bombs = [{
-	name:'Harvey Weinstein',
-	radius:5,
-	significance:'First victim speaks',
-        latitude: 40.639722,
-        longitude: -73.778889,
-	fillKey:'BUB'
-  }
-];
-
-bombMap.bubbles(bombs, {
-	popupTemplate: function (geo, data) {
-		return ['<div class="hoverinfo" color="red">' + data.name,
-            	'<br/>Info: ' +  data.significance + '',
-            	'</div>'].join('');
-	}
-});
-
-bombMap.addPlugin('fadingBubbles', fadingBubbles);
-d3.json(bubblesJSON, function(error, json) {
-    if(error) {
-        return console.warn(error);
-    }
-
-    drawBubbles(json);
-    var sleep = (json.length - 1) * 100;
-
-    setInterval(function() {
-        drawBubbles(json);
-    }, sleep);
-});
-
-drawBubbles = function(data) {
-    data.forEach(function(datum, index) {
-        setTimeout(function() {
-            bombMap.fadingBubbles([datum]);
-        }, index * 100);    
-    });
-}
-
+]
