@@ -7,14 +7,16 @@ body {
 }
 #map {
     position: relative;
-    overflow: overlay;
-    height: 80%;
+    width: 1476px; 
+    height: 900px;
+    top: -100px;
 }
 .container {
     height: 100vh;
 }
 .main {
-    overflow: overlay;
     height: 100%;
+    margin: auto;
+    width: 80%;
 }
 

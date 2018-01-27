@@ -1,8 +1,9 @@
 var bombMap = new Datamap({
   element: document.getElementById("map"),
-  height: null,
-  width: null, 
+  height: '50px',
+  width: '50px', 
   scope: 'world',
+  responsive: 'true',
   setProjection: function(element) {
     var projection = d3.geo.equirectangular()
       .center([-98.5,40])
@@ -43,4 +44,4 @@ bombMap.bubbles(bombs, {
 	}
 });
 
-
+alert();

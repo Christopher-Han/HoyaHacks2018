@@ -203,7 +203,7 @@ function Datamap() {
     projection: 'mercator',
     done: this._handleMapReady.bind(this),
     fills: {
-      defaultFill: "#FFFFFF",
+      defaultFill: "black",
     }
     });
 }
