@@ -1,3 +1,5 @@
+## Hasan Khan | HoyaHacks 2018
+## Generates dots for visualization, exports dot dictionaries into JSON
 
 import csv
 import numpy as np
@@ -9,19 +11,18 @@ import json
 import copy
 
 
-loc = pd.read_csv('cities.csv')
-loc = loc.dropna(how='all')
+loc = pd.read_csv('cities.csv').dropna(how='all')
 lats = np.asarray(loc['lat'])
 lngs = np.asarray(loc['lng'])
 probs = list(loc['n_prob'])
 
+# this makes sure the probablilies sum to 1
 probs[0] = probs[0] + (1-sum(probs)) 
 
 ## Build coordinates
 coords = []
 for i in range (0, len(lats)):
 	coords.append((lats[i], lngs[i]))
-
 
 ## Build a list of dictionaries, each corresponding to a day
 
@@ -37,34 +38,25 @@ for line in reader:
 dot_dict = {}
 j_list = [{}]
 count = 0
-a = []
+
 #print "probs: ", probs
 #print "lats: ", lats
 #print "lngs: ", lngs
-print "Is sum 1:", sum(probs)
 
 for day in range (0, len(days_dict)):
 	todays_points = int(days_dict[day]['score'])
 	print "Todays points:", todays_points
 	
-	for loop in range (0 , todays_points):
-		
+	for loop in range (0 , todays_points):	
 		dot_dict['day'] = day
-		dot_dict['lat'] = np.random.choice(lats, 1, False, probs)[0] #+ random.uniform(-1.0, 1.0)
-		dot_dict['lng'] = np.random.choice(lngs, 1, False, probs)[0] #+ random.uniform(-1.0, 1.0) 
+		dot_dict['lat'] = np.random.choice(lats, 1, False, probs)[0] + random.uniform(-1.0, 1.0)
+		dot_dict['lng'] = np.random.choice(lngs, 1, False, probs)[0] + random.uniform(-1.0, 1.0) 
 		j_list.append(copy.copy(dot_dict))
 		count+=1
 
-'''
-print "j_list:"
-for i in range (0, len(j_list)):
-	print j_list[i]
-'''
+# print j_list
 
-with open('smalldots.json', 'w') as outfile:
+with open('dots.json', 'w') as outfile:
     json.dump(j_list, outfile)
-print count
 
-
-
-
+# End program
