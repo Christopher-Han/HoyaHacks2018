@@ -4,6 +4,7 @@ body {
     height: 100vh;    
     margin: 0;
     padding: 0;
+    font-family: "Playfair Display", "serif";
 }
 #map {
     position: relative;
@@ -81,4 +82,18 @@ body {
     position: absolute;
     top: 0;
     left: 50px;
+}
+
+li {
+    list-style: none;
+    height: 0;
+    line-height: 2em;
+    margin: 0;
+    padding: 0 0.5em;
+    overflow: hidden;
+}
+
+li.show {
+    height: 2em;
+    margin: 2px 0;
 }
