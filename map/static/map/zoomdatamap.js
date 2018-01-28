@@ -224,7 +224,7 @@ function Datamap() {
 	    
 	,{
 	popupTemplate: function(geo, data) {
-   		return "<div class='hoverinfo'>"+ data.name+"";
+   		return "<div class='hoverinfo'>" + "Test!" + "</div>";
  	}
 });
 }
