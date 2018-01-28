@@ -36,7 +36,7 @@ for line in reader:
 ## Build a dot dictionary for each google search 
 
 dot_dict = {}
-j_list = [{}]
+j_list = []
 count = 0
 
 #print "probs: ", probs
@@ -47,10 +47,12 @@ for day in range (0, len(days_dict)):
 	todays_points = int(days_dict[day]['score'])
 	print "Todays points:", todays_points
 	
-	for loop in range (0 , todays_points):	
-		dot_dict['day'] = day
-		dot_dict['lat'] = np.random.choice(lats, 1, False, probs)[0] + random.uniform(-1.0, 1.0)
-		dot_dict['lng'] = np.random.choice(lngs, 1, False, probs)[0] + random.uniform(-1.0, 1.0) 
+	for loop in range (0 , todays_points):
+		dot_dict['radius'] = 3	
+		dot_dict['date'] = days_dict[day]['day']
+		dot_dict['latitude'] = np.random.choice(lats, 1, False, probs)[0] + random.uniform(-1.0, 1.0)
+		dot_dict['longitude'] = np.random.choice(lngs, 1, False, probs)[0] + random.uniform(-1.0, 1.0) 
+		dot_dict['fill_key'] = 'BUB2'
 		j_list.append(copy.copy(dot_dict))
 		count+=1
 
