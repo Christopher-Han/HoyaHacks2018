@@ -102,3 +102,8 @@ li.show {
 ul li {
     white-space: normal;
 } 
+
+#date {
+    font-size: 24px;
+    font-family: 'Playfair Display', 'serif';
+}

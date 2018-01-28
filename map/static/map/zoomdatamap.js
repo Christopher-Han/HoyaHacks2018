@@ -227,11 +227,7 @@ function Datamap() {
     	borderColor:'white',
 	animate: true,
 	highlightFillColor: 'white',
-<<<<<<< HEAD
 	fillOpacity: 0.0,
-=======
-	fillOpacity: 0,
->>>>>>> cd0481746e34e172aa2577838721f60797f90b87
 	borderOpacity: 0.0,
     }
     });
