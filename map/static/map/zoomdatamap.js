@@ -224,7 +224,7 @@ this.instance.bubbles(
 
 	,{
 	popupTemplate: function(geo, data) {
-   		return "<div class='hoverinfo'><font color="black">" + "Test!" + "</font></div>";
+   		return "<div class='hoverinfo'><font color="black"> + "Test!" + </font>";
  	}
 });
 }
