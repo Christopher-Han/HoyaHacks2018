@@ -17,6 +17,3 @@ d3.select("#slider").call(chroniton().width(1476).playButton(true).playbackRate(
   }
 
 }));
-alert();
-
-
