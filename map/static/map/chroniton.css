@@ -19,7 +19,7 @@
 .x.axis path.domain {
   stroke-width:10;
   stroke-linecap:round;
-  stroke:#ddd;
+  stroke:white;
 }
 .x.axis path.halo {
   stroke-width:12;
@@ -32,9 +32,9 @@
   transform:translate(0px, -5px);
 }
 .slider .handle {
-  fill: #fff;
+  fill: black;
   stroke-width:1;
-  stroke:#333;
+  stroke: white;
 }
 .slider .handle, .slider text {
   cursor: move;
