@@ -202,15 +202,16 @@ function Datamap() {
     element: this.$container.get(0),
     projection: 'mercator',
     done: this._handleMapReady.bind(this),
-    geographyConfig: {
-    	borderColor:'white'
-    },
     fills: {
+<<<<<<< HEAD
 	defaultFill: "#fafafa",
 	BUB:'black'
     },
     bubblesConfig: {
     	borderColor:'grey'
+=======
+      defaultFill: "black",
+>>>>>>> be20a77f85cab0a31c1093a67f487d1adca4a278
     }
     });
 
