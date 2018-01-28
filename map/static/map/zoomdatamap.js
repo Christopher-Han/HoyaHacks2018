@@ -65,6 +65,7 @@ Zoom.prototype._handleScroll = function() {
 
   this._update(limited.translate, limited.scale);
 };
+
 Zoom.prototype._handleClick = function(event) {
   var direction = $(event.target).data("zoom");
 
@@ -218,18 +219,16 @@ function Datamap() {
 	popupOnHover: false,
     },
     fills: {
-	defaultFill: "black",
-	BUB:'#FFFFFF',
-	BUB2:'#FFFFFF'
+	defaultFill: "#white",
+	BUB:'white',
+	BUB2:'white'
     },
     bubblesConfig: {
     	borderColor:'white',
 	animate: true,
-	popupOnHover: false,
 	highlightFillColor: 'white',
-	fillOpacity: 1,
+	fillOpacity: 0.0,
 	borderOpacity: 0.0,
-	highlightBorderOpacity:0.0,
     }
     });
     
@@ -254,19 +253,16 @@ dm = new Datamap();
 nextBubbleDate = function( currentDate ) {
 	d3.selectAll(".datamaps-bubble")
 		.filter(function(d) { 
-			var datedata = currentDate.split("/");
-			month = parseInt(datedata[0]);
-			day = parseInt(datedata[1]);
-			year = parseInt(datedata[2]);
 			var dated = d.date.split("/");
-			monthd = parseInt(dated[0]);
+			monthd = parseInt(dated[0] - 1);
 			dayd = parseInt(dated[1]);
 			yeard = parseInt(dated[2]);
+            var bubbleDate = new Date(yeard, monthd, dayd);
 			//return ((yeard*365)+(monthd+30)+dayd) <= ((year * 365) + (month * 30) + day )})
-			return ((month == monthd) && (day == dayd) && (year == yeard))  })
+			return currentDate == bubbleDate })
 		.transition()
 		.duration(1000)
 		.ease(d3.easeLinear)
-		.style("fill-opacity", 1);
+		.style("fill-opacity", 0.75);
 }
 //	.filter(function(d) { return d.date == currentDate })

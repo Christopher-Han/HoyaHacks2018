@@ -21,16 +21,18 @@ body {
     width: 80%;
 }
 .news {
-    background-color: #f9f7f1; 
     color: #2f2f2f;
     display: inline-block;
     width: 300px;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
     padding: 10px;
-    background: white;
     position: absolute;
     left: 500px;
     top: 400px;
+    background: no-repeat url(//s.ytimg.com/yt/imgbin/www-refreshbg-vflC3wnbM.png) 0 0;
+    background-color: #EBEBEB;
+    background-repeat: repeat;
+
 }
 
 .headline {
@@ -43,14 +45,14 @@ body {
     display: block;
     margin: 0 auto;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 24px;
     text-transform: uppercase;
     padding: 10px 0 10px 0;
 }
 .hl2 {
     font-weight: 400;
     font-style: italic;
-    font-size: 24px;
+    font-size: 18px;
     box-sizing: border-box;
     padding: 10px 0 10px 0;
     font-family: 'Droid Serif', serif;
@@ -97,3 +99,6 @@ li.show {
     height: 2em;
     margin: 2px 0;
 }
+ul li {
+    white-space: normal;
+} 
