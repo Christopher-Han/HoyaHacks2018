@@ -56,7 +56,7 @@ for day in range (0, len(days_dict)):
 
 # print j_list
 
-with open('dots.json', 'w') as outfile:
+with open('tinydots.json', 'w') as outfile:
     json.dump(j_list, outfile)
 
 # End program
