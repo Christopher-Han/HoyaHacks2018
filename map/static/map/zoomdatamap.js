@@ -202,16 +202,19 @@ function Datamap() {
     element: this.$container.get(0),
     projection: 'mercator',
     done: this._handleMapReady.bind(this),
+    geographyConfig: {
+	highlightFillColor: 'white',
+	highlightOnHover: false,
+	popupOnHover: false,
+    },
     fills: {
-<<<<<<< HEAD
-	defaultFill: "#fafafa",
+	defaultFill: "#white",
 	BUB:'black'
     },
     bubblesConfig: {
-    	borderColor:'grey'
-=======
-      defaultFill: "black",
->>>>>>> be20a77f85cab0a31c1093a67f487d1adca4a278
+    	borderColor:'grey',
+	animate: true,
+	highlightFillColor: 'white',
     }
     });
 
@@ -221,7 +224,7 @@ this.instance.bubbles(
 
 	,{
 	popupTemplate: function(geo, data) {
-   		return "<div class='hoverinfo'>Bubble for " + data.name + "";
+   		return "<div class='hoverinfo'><font color="black">" + "Test!" + "</font></div>";
  	}
 });
 }
