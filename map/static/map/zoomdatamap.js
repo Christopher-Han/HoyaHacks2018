@@ -227,7 +227,7 @@ function Datamap() {
     	borderColor:'white',
 	animate: true,
 	highlightFillColor: 'white',
-	fillOpacity: 0.0,
+	fillOpacity: 1,
 	borderOpacity: 0.0,
     }
     });
