@@ -244,7 +244,19 @@ repeat = function() {
 
 nextBubbleDate = function( currentDate ) {
 	d3.selectAll(".datamaps-bubble")
-		.filter(function(d) { return d.date == currentDate })
+		.filter(function(d) { 
+			var datedata = currentDate.split("/");
+			month = parseInt(datedata[0]);
+			day = parseInt(datedata[1]);
+			year = parseInt(datedata[2]);
+			console.log((year * 365) + (month * 30) + day);
+			var dated = d.date.split("/");
+			monthd = parseInt(dated[0]);
+			dayd = parseInt(dated[1]);
+			yeard = parseInt(dated[2]);
+			console.log((yeard*365)+(monthd*30)+dayd)	
+			//return ((yeard*365)+(monthd+30)+dayd) <= ((year * 365) + (month * 30) + day )})
+			return currentDate == d.date })
 		.transition()
 		.duration(1000)
 		.ease(d3.easeLinear)
