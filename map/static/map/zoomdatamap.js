@@ -227,7 +227,7 @@ function Datamap() {
 	animate: true,
 	popupOnHover: false,
 	highlightFillColor: 'white',
-	fillOpacity: 0,
+	fillOpacity: 1,
 	borderOpacity: 0.0,
 	highlightBorderOpacity:0.0,
     }
