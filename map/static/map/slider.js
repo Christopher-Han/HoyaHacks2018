@@ -13,29 +13,28 @@ var currentDate = new Date(parseInt(currentDateString[2]), parseInt(currentDateS
 var index = 0;
 d3.select("#slider").call(chroniton().domain([new Date(2017, 09, 07), new Date(2017, 11, 24)]).width(1476).playButton(true).playbackRate(0.2).loop(false).on('change', function(date) {
    nextBubbleDate(date); 
-       if(date > currentDate) {
-           index = index + 1;
-           if(index < headline_data.length) {
-           currentDateString = headline_data[index].date.split("/");
-           currentDate = new Date(parseInt(currentDateString[2]), parseInt(currentDateString[0]) - 1, parseInt(currentDateString[1]));
-           var randX = Math.floor(Math.random() * 700) + 700;
-           var randY = Math.floor(Math.random() * 400) + 100;
-           var cloned = newsNode.cloneNode(true);
-           cloned.id = "news-" + index;
+   if(date > currentDate) {
+       index = index + 1;
+       if(index < headline_data.length) {
+       currentDateString = headline_data[index].date.split("/");
+       currentDate = new Date(parseInt(currentDateString[2]), parseInt(currentDateString[0]) - 1, parseInt(currentDateString[1]));
+       var randX = Math.floor(Math.random() * 700) + 700;
+       var randY = Math.floor(Math.random() * 400) + 100;
+       var cloned = newsNode.cloneNode(true);
+       cloned.id = "news-" + index;
 
-           document.getElementsByClassName("container")[0].appendChild(cloned);
-           d3.select("#news-"+index).style("opacity", 0);
-           document.getElementById("news-"+index).getElementsByClassName("headline-text")[0].innerHTML = headline_data[index].headline;
-           document.getElementById("news-"+index).getElementsByClassName("hl2")[0].innerHTML = headline_data[index].date;
-           d3.select("#news-"+index).style("left", randX + "px").style("top", randY+"px");
-           d3.select("#news-"+index).style("opacity", 0).transition().duration(1500).style("opacity", 1);
-           var panel = d3.select("#news-"+index);
-           setTimeout(function(){
-            panel.style("opacity", 1).transition().duration(1500).style("opacity", 0);
-           }, 5000);
-           }
+       document.getElementsByClassName("container")[0].appendChild(cloned);
+       d3.select("#news-"+index).style("opacity", 0);
+       document.getElementById("news-"+index).getElementsByClassName("headline-text")[0].innerHTML = headline_data[index].headline;
+       document.getElementById("news-"+index).getElementsByClassName("hl2")[0].innerHTML = headline_data[index].date;
+       d3.select("#news-"+index).style("left", randX + "px").style("top", randY+"px");
+       d3.select("#news-"+index).style("opacity", 0).transition().duration(1500).style("opacity", 1);
+       var panel = d3.select("#news-"+index);
+       setTimeout(function(){
+        panel.style("opacity", 1).transition().duration(1500).style("opacity", 0);
+       }, 5000);
        }
-       
+   }   
 }));
 
 

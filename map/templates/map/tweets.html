@@ -1,4 +1,13 @@
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'map/twitterFetcher_min.js' %}"></script>
 <script type="text/javascript" src="{% static 'map/twitterfeed.js' %}"></script>
-<div id="tweets"></div>
+<link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+<div id="tweets">
+</div>
+<div style="margin-top:50px; text-align:center; font-family: 'Roboto', sans-serif; opacity: .5">
+	Produced for HoyaHacks using D3 and Javascript. Press play button to left of progress bar to play animation.
+	<br>
+	This visualization showcases the growth of a movement using Google Trends and articles.
+	<br>
+	Refesh the page to replay the animation.
+</div>

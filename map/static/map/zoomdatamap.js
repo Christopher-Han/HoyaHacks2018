@@ -207,38 +207,34 @@ Zoom.prototype._getNextScale = function(direction) {
 };
 
 function Datamap() {
-    this.$container = $("#map");
-    this.instance = new Datamaps({
+  this.$container = $("#map");
+  this.instance = new Datamaps({
     scope: 'world',
     element: this.$container.get(0),
     projection: 'mercator',
     done: this._handleMapReady.bind(this),
     geographyConfig: {
-	highlightFillColor: 'white',
-	highlightOnHover: false,
-	popupOnHover: false,
-    },
-    fills: {
-	defaultFill: "#white",
-	BUB:'white',
-	BUB2:'white'
-    },
-    bubblesConfig: {
-    	borderColor:'white',
-	animate: true,
-	highlightFillColor: 'white',
-	fillOpacity: 1,
-	borderOpacity: 0.0,
-    }
-    });
-    
-    this.instance.bubbles( 
-	twit.concat(articles)	
-	,{
-	popupTemplate: function(geo, data) {
-   		return "<div class='hoverinfo'>" + "Test!" + "</div>";
- 	}
-    });
+  	highlightFillColor: 'white',
+  	highlightOnHover: false,
+  	popupOnHover: false,
+  },
+  fills: {
+  	defaultFill: "#white",
+  	BUB:'white',
+  	BUB2:'#0084FF'
+  },
+  bubblesConfig: {
+    popupOnHover: false,
+  	highlightOnHover:false,
+  	animate: true,
+  	highlightFillColor: 'white',
+  	fillOpacity: 0,
+  	borderOpacity: 0.0,
+  }
+  });
+  
+  //this.instance.bubbles( 
+  //);
 }
 
 Datamap.prototype._handleMapReady = function(datamap) {
@@ -248,23 +244,40 @@ Datamap.prototype._handleMapReady = function(datamap) {
   });
 }
 
-dm = new Datamap();
 
-nextBubbleDate = function( currentDate ) {
-	d3.selectAll(".datamaps-bubble")
-		.filter(function(d) { 
-			var dated = d.date.split("/");
-			monthd = parseInt(dated[0] - 1);
-			dayd = parseInt(dated[1]);
-			yeard = parseInt(dated[2]);
-            var bubbleDate = new Date(yeard, monthd, dayd);
-			//return ((yeard*365)+(monthd+30)+dayd) <= ((year * 365) + (month * 30) + day )})
-			return currentDate == bubbleDate })
-		.transition()
-		.duration(1000)
-		.ease(d3.easeLinear)
-		.style("fill-opacity", 0.75);
+function init(callback) {
+  dm = new Datamap();
+  callback();
 }
 
-dm.instance.bubbles(twit.concat(articles));
+nextBubbleDate = function( currentDate ) {
+  d3.selectAll(".datamaps-bubble")
+    .filter(function(d) { 
+      var dated = d.date.split("/");
+      monthd = parseInt(dated[0]-1);
+      dayd = parseInt(dated[1]);
+      yeard = parseInt("20" + dated[2]);
+      var bubbleDate = new Date(yeard, monthd, dayd);
+      //dated = currentDate.split("/");
+      //monthd = parseInt(dated[0] - 1);
+      //dayd = parseInt(dated[1]);
+      //yeard = parseInt(dated[2]);
+      //var currentDate = new Date(yeard, monthd, dayd);
+      //return ((yeard*365)+(monthd+30)+dayd) <= ((year * 365) + (month * 30) + day )})
+      return bubbleDate <= currentDate })
+    .transition()
+    .duration(1000)
+    .ease(d3.easeLinear)
+    .style("fill-opacity", .75);
+}
+
+function animation(){
+  dm.zoom._animate([-548.4619457766291,-724.9401513475307],2.7638256527521285)
+  setTimeout(function() {
+    dm.instance.bubbles(twit.concat(articles));
+  }, 10000);
+}
+
+init(animation);
+
 //	.filter(function(d) { return d.date == currentDate })

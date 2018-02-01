@@ -1,10 +1,10 @@
 var config5 = {
   "id": '957345317984325634',
   "domId": 'tweets',
-  "maxTweets": 13,
-  "enableLinks": true,
+  "maxTweets": 20,
+  "enableLinks": false,
   "showUser": false,
-  "showTime": true,
+  "showTime": false,
   "dateFunction": '',
   "showRetweet": false,
   "customCallback": handleTweets,
@@ -16,7 +16,9 @@ function RndText()
     var rannum = Math.floor(Math.random() * textarray.length);
 
     $('#tweets').fadeOut(2000, function() {
-	 $(this).html(textarray[rannum]).fadeIn(2000);
+	 $(this).html(
+      '<div style="text-align:center"><p style="font-family:\'Roboto\', sans-serif;">' + textarray[rannum] + "</p></div>"
+    ).fadeIn(2000);
     });
 }
 
