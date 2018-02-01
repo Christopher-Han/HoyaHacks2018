@@ -7,9 +7,9 @@
 ## Installation
 
 Simply navigate to the repository and run the Django start command:
-'''
+```
 python manage.py runserver
-'''
+```
 
 ## Notes
 
